@@ -1,27 +1,17 @@
-# NgxTranslaze
+ngx-translaze makes it safe and easy to develop multi lingual angular apps.<br/><br/>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
+Implementation is with components and interfaces, rather than json files:
+1. the language text will have an interface, one for all languages
+2. we use components to hold the language text, a component for each language
+3. each language component will have a variable, typed to the language interface, that will hold the language text
+<br/><br/>
 
-## Development server
+Now we can use those variables anywhere in the app and get those benefits:
+* automatic error checking by the typescript compiler in our classes and templates, making it safe in case we use incorrect keys 
+* intellisense in our classes and templates
+* it is easier to maintain language text in components rather than json files
+* the bundle size is small since Angular's built-in tools are used 
+* language components are lazy loaded
+<br/><br/>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Head over for the [official docs](https://zohar1000.github.io/ngx-translaze).
