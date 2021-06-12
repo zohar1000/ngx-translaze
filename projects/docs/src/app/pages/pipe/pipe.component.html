@@ -1,0 +1,19 @@
+<section>
+  TranslazePipe is used to display a tokenized string as a string with values, it is useful for cases
+  where values are known only at run time.<br/>
+
+  The pipe is being passed a string containing tokens, each token is wrapped with {{'{'}}}, it also being
+  passed a parameter which is an object containing tokens/value pairs.<br/><br/>
+
+  In the following example, the properties <b>userName</b> and <b>age</b> are initialized asynchronously.
+  <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+    {{ mdClass }}
+  </td-flavored-markdown>
+
+  those properties are passed to the pipe as parameters, the following
+  <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+    {{ mdTemplate }}
+  </td-flavored-markdown>
+
+  will display: John is 35 years old
+</section>

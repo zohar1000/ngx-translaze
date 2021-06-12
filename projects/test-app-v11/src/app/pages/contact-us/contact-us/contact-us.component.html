@@ -1,0 +1,78 @@
+<p>contact-us works!</p>
+
+<!--
+<ng-container *ngIf="appText$ | async as appText">
+  <ng-container *ngIf="featureText$ | async as text">
+
+    <div>
+      HELLO
+      <h1>{{appText$.value.general.brandName | translaze}}</h1>
+      <div>title: {{text.title}}</div>
+    &lt;!&ndash;&ndash;&gt;
+    &lt;!&ndash;  <p>{{appText.pages.about.title| translaze}}</p>&ndash;&gt;
+    </div>
+
+  </ng-container>
+</ng-container>
+
+<br/>
+<hr/>
+<br/><br/>
+-->
+
+<div>
+  TEST Array:
+  <ng-container *ngCond="{ appText: appText$, contactUsText: featureText$ } as value; multi: true; else else1">
+      App: {{appText$.value.general.productName}}<br/>
+<!--      Feature: {{featureText$.value.title | translaze}}<br/>-->
+      Feature: {{featureText$.value.title | json}}<br/>
+  </ng-container>
+</div>
+
+<ng-template #else1>
+  no appText$
+</ng-template>
+
+<br/><hr/><br/>
+
+<div>
+  TEST Single:
+  <ng-container *ngCond="promise as value; let c=complete; else elseTemplate; opts: { isThrowOnError: false }"><br/>
+<!--      <div>trying implicit: {{value[1].text | json}}</div>-->
+      <div>trying implicit2: XXX {{value | json}} YYY</div>
+<!--    Feature: {{featureText$.value.title}}<br/>-->
+<!--    Value: {{featureText$.value | json}}-->
+
+    <div *ngIf="c">PROMISE COMPLETE!! {{value}}}</div>
+<!--    <div *ngIf="e">PROMISE ERROR!! {{e}}}</div>-->
+
+  </ng-container>
+
+  <ng-template #thenTemplate let-value>
+    Then template: {{value | json}}
+  </ng-template>
+
+  <ng-template #elseTemplate let-e=error>
+    Else template
+    <div *ngIf="e">PROMISE ERROR!! {{e}}}</div>
+  </ng-template>
+
+<!--  <div *ngIf="featureText$ | async as value" style="color: blue">
+    ngIf: {{featureText$.value.title2}}, value: {{value}}<br/>
+    ngIf2: {{value.title}}, value: {{value}}
+  </div>-->
+</div>
+
+<!--<h2>Users:</h2>
+<div *ngFor="let user of users">
+  <span>City: {{user.address.city2}}</span>
+</div>
+
+<h2>TEST COMPONENT TITLE:</h2>
+<div *ngIf="ft">
+  <span>Text: {{ft.title}}</span>
+</div>-->
+
+<br/>
+<hr/>
+<br/><br/>

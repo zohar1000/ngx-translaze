@@ -1,0 +1,43 @@
+.layout-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .toolbar-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    background: orange;
+    padding-right: 2rem;
+    box-shadow: 0 9px 19px -15px #000000;
+  }
+
+  .main-section {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+
+    .sidebar {
+      width: 300px;
+      padding: 3rem 0 0 2rem;
+      background: #272822;
+      .menu-item {
+        margin-bottom: 1rem;
+        a {
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+
+    .page-wrapper {
+      padding: 2rem;
+    }
+
+  }
+}
+
+
+
+

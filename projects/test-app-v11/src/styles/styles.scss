@@ -1,0 +1,133 @@
+/* You can add global styles to this file, and also import other style files */
+//$mat-font-url: '';
+@import 'material';
+//@import 'theme';
+@import 'markdown';
+
+$header-height: 80px;
+
+html,body,address,blockquote,div,
+form,fieldset,caption,
+h1,h2,h3,h4,h5,h6,
+hr,ul,li,ol,ul,dl,dt,dd,
+table,tr,td,th,p,img {
+  margin:0;
+  padding:0;
+}
+
+img, fieldset {
+  border:none;
+}
+
+*, *:after, *:before {
+  box-sizing:border-box;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100vh;
+}
+
+body {
+  // font-family: Arial, "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  height: $header-height;
+  background: #eeeeee;
+  display: flex;
+  align-items: center;
+  padding-left: 5rem;
+}
+.main {
+  display: flex;
+  flex-direction: row;
+  .toc {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    div {
+      cursor: pointer;
+    }
+  }
+  .page {
+    flex-grow: 1;
+    padding: 1rem;
+  }
+}
+
+code {
+  //font-family: Tahoma;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+
+.page {
+  padding: 2rem;
+  header {
+    &.title {
+      font-weight: bold;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+  section {
+    line-height: 1.3rem;
+    &:not(:first-child) {
+      margin-top: 1rem;
+    }
+    .title {
+      font-size: 1rem;
+      font-weight: bolder;
+      margin-bottom: 0.2rem;
+    }
+  }
+  > ul > li:not(:first-child) {
+    margin-top: 2rem;
+  }
+}
+
+
+
+
+
+/*
+
+//:not(pre) > code, pre {
+pre {
+  background: #272822;
+}
+
+pre {
+  background: black;
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+code, pre {
+  color: #f8f8f2;
+  background: none;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+*/

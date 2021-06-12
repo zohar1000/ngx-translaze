@@ -1,0 +1,13 @@
+.property {
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+  .name {
+    font-weight: bold;
+  }
+  .desc {
+    margin-left: 0.5rem;
+    &::before {
+      content: "- ";
+    }
+  }
+}

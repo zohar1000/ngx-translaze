@@ -1,0 +1,91 @@
+<section>
+  TranslazeService is a service which handles all language text management, it is provided in root.<br/><br/>
+
+  You can access the service properties/methods to get an information about the current language, change language,
+  get the config object and so on.<br/>
+  An example of using the service in a component, the <i>onClickChangeLang</i> method is calling TranslazeService to change the current language.<br/><br/>
+
+  <div class="angular-element-header">my.component.ts</div>
+  <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+    {{ mdComponent }}
+  </td-flavored-markdown>
+</section>
+
+<section>
+  <br/>Below is a list of the properties/methods:<br/><br/>
+  <div class="title">properties:</div>
+  <table>
+    <tr><th>Name</th><th>description</th></tr>
+    <tr>
+      <td>text$</td>
+      <td>a BehaviorSubject for the current language text.<br/>
+      the value has the interface of the language text</td>
+    </tr>
+
+    <tr>
+      <td>lang$</td>
+      <td>a ReplaySubject for the current language, the value has the interface of TranslazeLang</td>
+    </tr>
+
+    <tr>
+      <td>isText$</td>
+      <td>a BehaviorSubject for indication if the language text is available or not, the value is boolean</td>
+    </tr>
+
+  </table>
+</section>
+
+
+<section>
+  <br/><div class="title">methods:</div>
+  <table>
+    <tr><th>Name</th><th>description</th><th>parameters</th><th>return</th></tr>
+    <tr>
+      <td>changeLang</td>
+      <td>change the current language</td>
+      <td class="func-params">
+        <span class="func-param">langCode</span>- the code that is defined for the language in the config
+      </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>getConfig</td>
+      <td>get the config object that was passed to TranslazeModule in AppModule</td>
+      <td></td>
+      <td>config object of interface TranslazeConfig</td>
+    </tr>
+
+    <tr>
+      <td>translate</td>
+      <td>replacing tokens in string with values.<br/>
+        this method is useful for cases where values are known only at run time, we can then prepare
+        strings in our language text that contains placeholders and have them replaced during run time.<br/><br/>
+      for example: translate('{{'{'}}name} is {{'{'}}age} years old', {{'{'}} name: 'John', age: 35 })<br/>
+        will return 'John is 35 years old'
+      </td>
+      <td class="func-params">
+        <div><span class="func-param">str</span>- string containing tokens where each token is wrapped with {{'{'}}}</div>
+        <span class="func-param">values</span>- object containing token/value pairs
+      </td>
+      <td>string where tokens are replaced with values</td>
+    </tr>
+
+    <tr>
+      <td>getInfo</td>
+      <td>get information about the current language and the config object</td>
+      <td></td>
+      <td>object having the interface of TranslazeInfo:<br/>
+<pre>
+{{'{'}}
+  config: <i>the config object that was passed to TranslazeModule</i>
+  langCode: <i>the language code from the config object</i>
+  langName: <i>the language name from the config object</i>
+}
+</pre>
+      </td>
+    </tr>
+
+  </table>
+</section>
+

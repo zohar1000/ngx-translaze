@@ -1,0 +1,90 @@
+<section>
+You can spilt your translation components to have to a global translation component and a translation component for a feature module.
+<br/><br/>
+
+The global translation component is loaded when the app loads and contains general translations shared by all
+feature modules.
+<br/><br/>
+
+A feature module can have its own translation components that contains translations specific to that module.<br/>
+Those translation module components can be located anywhere, within the feature module or under the global translation folder.
+<br/><br/>
+
+For example, a global translation component will contain the brand name, product name, general error/success messages, etc.<br/>
+A feature module such as a user module will contain user phrases such as adding user, editing user, deleting a user, etc.<br/>
+The user component text will have its own interface, for example <i>UserText</i>.
+<br/><br/>
+
+The translation files are being loaded when the feature module is loaded, lazy or eager.
+<br/><br/>
+
+The main benefit here is a faster app load time.<br/>
+you may also find a benefit in dividing the translation text to smaller files, which may be easy to maintain.
+</section>
+
+<section>
+Below is a sample of contact-us feature module, the module provides a feature config and feature translation service.
+<td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+  {{ mdFeatureModule }}
+</td-flavored-markdown>
+</section>
+
+<section>
+The config feature module interface is a bit different than for the app module.<br/>
+An additional property <b>featureId</b> is used to hold a unique id, the rest of the properties
+have the same meaning as in the <a [routerLink]="'/config'">the main config</a>.
+
+<td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+  {{ mdFeatureConfig }}
+</td-flavored-markdown>
+</section>
+
+<section>
+In our contact-us component we would like to use text from both the general translations and user translations.<br/>
+To use the translations in our template we will declare typed variables in our component class and give
+them the references to the translations.<br/>
+We will inject <b>TranslazeFeatureService</b> to get the references from there.<br/>
+
+<td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+  {{ mdUserComponent }}
+</td-flavored-markdown>
+</section>
+
+<section>
+To use userText$ we will wrap the content with *ngIf and give it a template name to use, <i>text</i> in this example.<br/>
+The IDE will provide us with intellisense since userText$ is a typed variable.
+<td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+  {{ mdUserTemplate1 }}
+</td-flavored-markdown>
+</section>
+
+<section>
+In the examples below we will use text from both appText$ and userText$.<br/>
+For this example appText$ will contain a key <i>fillForm</i> with the value: 'Please fill in the form'.<br/><br/>
+
+There are 2 ways to implements it.<br/>
+
+<div class="section-inner-title">Using 2 dom elements</div>
+Angular does not provide a way to use *ngIf with multiple asynchronous conditions, so we use 2 separate dom elements.
+<td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+  {{ mdUserTemplate2 }}
+</td-flavored-markdown>
+
+<div class="section-inner-title">Using *ngCond directive</div>
+NgxTranslaze comes with a directive called ngCond, this directive works similar to ngIf with those advantages:
+  <ul>
+    <li>providing the use of multiple asynchronous conditions</li>
+    <li>no need to use the async pipe</li>
+  </ul>
+
+  <div class="block-quote">
+    ngCond was written by us, although it is included in NgxTranslaze it is also an <a href="https://www.npmjs.com/package/ng-cond">npm package</a> by itself.
+  </div>
+
+Just provide an object containing a key for each observable, ngCond will validate when both observables will have value.<br/>
+To be provided with intellisense, use each observable's <b>value</b> property (e.g. appText$.value).
+
+<td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+  {{ mdUserTemplate3 }}
+</td-flavored-markdown>
+</section>

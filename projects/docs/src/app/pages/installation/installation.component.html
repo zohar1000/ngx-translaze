@@ -1,0 +1,85 @@
+<section>To install:</section>
+<!--<pre><code [highlight]="'npm install &#45;&#45;save nxg-translaze'"></code></pre>-->
+
+<td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+  {{ inlineFlavoredMarkdown }}
+</td-flavored-markdown>
+
+<section>
+  <div class="section-inner-title">Interface for language text</div>
+  Next is to defined a text structure interface, every language text used in the app will have this structure.<br/>
+  In this example we named it <i>AppText</i>.
+  <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+    {{ mdTextInterface }}
+  </td-flavored-markdown>
+</section>
+
+<section>
+  <div class="section-inner-title">Language components</div>
+  The text for each language will be in a component, it's a regular angular component that will be lazy by ngx-translaze on demand.<br/>
+  You can give those language components your own names and place them anywhere you want in your app.<br/><br/>
+  For this tutorial, lets take an example of having a folder named 'translations' with language components for English and Spanish.<br/>
+  <img src="assets/images/translation-folder.png" alt="translation folder"/><br/>
+</section>
+
+<div class="block-quote warning">
+  The language components are lazy loaded so:<br/>
+  <table>
+    <tr>
+      <td>1.</td><td>make sure not to import those components in any module.</td>
+    </tr>
+    <tr>
+      <td>2.</td><td>
+      depending on your angular version, you may have to declare the language components as entryComponents.<br/>
+      in you encounter such build error then add this line in AppModule: entryComponents: [LangEnComponent, LangEsComponent]
+    </td>
+    </tr>
+  </table>
+</div>
+
+<br/>
+
+<section>
+  Each language component will have a local variable, typed as the language text interface, that will hold the language text.
+  <div class="angular-element-header">lang-en.component.ts</div>
+  <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+    {{ mdVariable }}
+  </td-flavored-markdown>
+</section>
+
+<section>
+  <div class="section-inner-title">Importing TranslazeRootModule</div>
+  TranslazeRootModule is imported in the app module, you call its .forRoot() function and pass it a config object having the type of <i>TranslazeConfig</i>.<br/>
+  Here is a basic config:<br/>
+  <b><i>langs</i></b> - an array of languages, each with its code and language component location<br/>
+  <b><i>loadLang</i></b> - a function to load a language components<br/>
+  <b><i>setText</i></b> - a function that will be called when a language text has loaded or changed, usually the function would have a BehaviorSubject emitting the text.<br/>
+  <div class="angular-element-header">app.module.ts</div>
+  <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+    {{ mdImport }}
+  </td-flavored-markdown>
+</section>
+
+<section>
+  <div class="section-inner-title">Use the language text in the component template</div>
+  Now set a local variable in your component to be used in the template, this would preferably be a Behaviour subject with the type of <i>appText</i>.<br/>
+  Here we don't type the local variable, it will get the type from environment.appText$.
+  <div class="angular-element-header">my.component.ts</div>
+  <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+    {{ mdLocalVariable }}
+  </td-flavored-markdown>
+
+  The template now have access to the language text.<br/>
+  Since language components are lazy loaded, verify the language text exists before using it by wrapping the template with *ngIf.<br/>
+  <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+    {{ mdTemplate }}
+  </td-flavored-markdown>
+
+  And the about page will render the language text:
+  <div class="template-display">
+    <h1>About</h1><br/>
+
+    <p>Our product <i>My Awesome App</i> is a ...</p>
+  </div>
+
+</section>

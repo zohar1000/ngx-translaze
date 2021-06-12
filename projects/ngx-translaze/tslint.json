@@ -1,0 +1,24 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+	"align": false,
+	"curly": false,
+	"directive-selector": [
+	  false,
+	  "attribute",
+	  "lib",
+	  "camelCase"
+	],
+	"component-selector": [
+	  true,
+	  "element",
+	  "lib",
+	  "kebab-case"
+	],
+	"no-console": false,
+	"no-string-literal": false,
+	"space-before-function-paren": false,
+	"typedef": false,
+	"variable-name": false
+  }
+}

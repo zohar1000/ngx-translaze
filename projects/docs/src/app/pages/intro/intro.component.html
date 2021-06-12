@@ -1,0 +1,88 @@
+<section>
+  ngx-translaze makes it safe and easy to develop multi lingual angular apps.<br/><br/>
+  App development is made over time and it is hard to avoid human mistakes once a while which cause run time errors.<br/>
+  ngx-translaze was designed to provide multi lingual capabilities while preventing such errors.<br/><br/>
+
+  <h2>Overview</h2>
+  <ul>The steps to implement multi lingual:
+    <li>create an interface of your language text structure</li>
+    <li>create a component for each language and declare a variable to hold the language text.<br/>
+      the variable will have the type of the language text interface</li>
+    <li>in your application components declare a variable which will reference the language text</li>
+  </ul>
+  <div class="sum-line-hl">Your template have now access to a typed language text!</div>
+  <!--The components are lazy loaded, so each language will be loaded only on demand.-->
+</section>
+
+<section>
+  <br/><h2>Example</h2>
+  The example demonstrates how to implement an 'about' page.<br/>
+  The page will have a title and short description, both using language text.
+  <div class="section-inner-title">The interface</div>
+  We will declare an interface for the language text structure named <i>AppText</i><br/>
+  <div class="note">Note that the names of interfaces, components and variables used in this example are arbitrary, you can choose your own names.</div>
+  <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+    {{ mdTextInterface }}
+  </td-flavored-markdown>
+</section>
+
+<section>
+  <div class="section-inner-title">The language component</div>
+  Each language text will be contained in a component, this is a regular angular component that will be lazy loaded by ngx-translaze on demand.<br/>
+  A variable having the type of <i>AppText</i> will contain the language text, english in this case.<br/>
+  <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+    {{ mdVariable }}
+  </td-flavored-markdown>
+</section>
+
+<div class="block-quote">
+  When developing a multi lingual app we work with multiple language components.<br/>
+  During development we modify the text in our language components and we might make mistakes which can lead to run time errors.<br/>
+  For example we might not keep a language text consistent with the interface by forgetting to add a new key, or we may add
+  a key to a wrong node, or we might update the language components with new keys but miss updating one of the language components.<br/><br/>
+
+  <div class="emp">Benefit #1 - automatic language text integrity</div>
+
+  Having an interface and a corresponding typed variable for each language component ensures integrity of the text structure
+  between all oue language components.<br/>
+  This is automatically done for us by the typescript compiler at build time.
+</div>
+
+<section>
+  <div class="section-inner-title">The about component</div>
+  Now in our about component we will declare a class variable appText$, this will be a BehaviourSubject typed <i>AppText</i>,  this variable
+  will be used in our template.
+  <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+    {{ mdComponentVariable }}
+  </td-flavored-markdown>
+</section>
+
+<section>
+  ngx-translaze provides a simple one-liner method to assign the language text to this variables, actually there are multiple ways
+  for your choice, those will be described later on.<br/>
+  Lets assume for now that appText$ already contains the text.
+  <div id="template" class="section-inner-title">The template</div>
+  Since the language text is lazy loaded we need to make sure the text was loaded before using it, so we will
+  wrap our template with *ngIf.<br/>
+  For convenience, we can refer the language text with a template variable, we called it here <i>appText</i>.<br/><br/>
+  The IDE now provides intellisense when we refer the language text in our template.<br/>
+  <img class="desc-image" src="/assets/images/intellisense.gif" alt="intellisense"/>
+</section>
+
+<div class="block-quote">
+  <div class="emp">Benefit #2 - intellisense</div>
+  As you can see from the image above, it is much easier to develop with intellisense.
+
+  <hr/>
+
+  During development we might modify the language text interface but forget to modify our templates accordingly.<br/><br/>
+  For example, we might change a key name from 'productName' to 'brandName'.<br/>
+  We then change the references in our templates to the new key, but we might <b>miss</b> one or or more references and still have something like: appText.general.productName
+  instead of appText.general.brandName.<br/><br/>
+
+  <div class="emp">Benefit #3 - automatic template integrity with text</div>
+  During build, the typescript compiler verifies that the references in the templates match the text interface.<br/><br/>
+  <b>We are safe from any run time errors that might happen due to human errors.</b>
+</div>
+
+

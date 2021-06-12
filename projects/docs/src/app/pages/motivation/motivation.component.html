@@ -1,0 +1,117 @@
+<header class="title">Motivation</header>
+
+<section>
+  When developing an angular project having multilingual support, I found 3 main libraries to work with, each has its pros and cons.
+</section>
+
+
+
+<section>
+
+<ul>
+  <li>
+    <section>
+      <div class="title"><a href="https://angular.io/guide/i18n">Official angular i18n (internationalization) library</a></div>
+        Angular provides a translation library which works by placing a directive and an description at each dom element you want to translate.<br>
+        During build, it generates a file which include all the elements having the directive in .xlif (a standard translation file)<br>
+        This file can be sent to translators to be translated to the different languages.
+    </section>
+    <section>
+      Cons: the template gets verbose, for example the line
+      <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+        {{ codeAngularI18nPre }}
+      </td-flavored-markdown>
+      turns into
+      <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+        {{ codeAngularI18nPost }}
+      </td-flavored-markdown>
+    </section>
+  </li>
+
+  <li>
+    <section>
+      <div class="title"><a href="https://www.npmjs.com/library/@ngx-translate/core">@ngx-translate</a></div>
+      This library is here since angular version 2.0 and make use of language json files.<br>
+      It is a robust library which provides directive, pipe and a service to work in your template and class.<br>
+      Referring a nested key in the json file is made via string.
+    </section>
+    <section>
+      Provided a json file
+      <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+        {{ codeNgxTranslationPre }}
+      </td-flavored-markdown>
+
+      You can use either a directive
+<!--      <pre><code [highlight]="codeNgxTranslationPost1"></code></pre>-->
+      <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+        {{ codeNgxTranslationPost1 }}
+      </td-flavored-markdown>
+      or a pipe
+<!--      <pre><code [highlight]="codeNgxTranslationPost2"></code></pre>-->
+      <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+        {{ codeNgxTranslationPost2 }}
+      </td-flavored-markdown>
+    </section>
+  </li>
+
+  <li>
+    <section>
+      <div class="title"><a href="https://github.com/ngneat/transloco/">Transloco</a></div>
+      A relatively new and very powerful library, it also uses language json files.<br>
+      Apart from a directive, pipe and service, it has also support for multiple languages simultaneously, testing, localization and more.<br>
+      Referring a nested key is made via string as well, and you can refer to other keys in the json file during translation.
+    </section>
+    <section>
+      Provided a json file
+<!--      <pre><code [highlight]="codeTranslocoFile"></code></pre>-->
+      <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+        {{ codeTranslocoFile }}
+      </td-flavored-markdown>
+      You can use a structural directive
+      <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+        {{ codeTranslocoDirective1 }}
+      </td-flavored-markdown>
+      or an attribute directive
+      <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+        {{ codeTranslocoDirective2 }}
+      </td-flavored-markdown>
+      or a pipe
+      <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+        {{ codeTranslocoPipe }}
+      </td-flavored-markdown>
+    </section>
+  </li>
+</ul>
+
+</section>
+
+
+
+
+
+
+
+<section>
+  Both transloco and @ngx-translate are fine libraries which are suited for large projects.<br/>
+  The main con of both is using strings to refer to the keys in the json file.<br/>
+  When working with a code base for a long time as we do with our application, it is inevitable to have changes
+  made to our code relating to the translation. since the path to the keys in the json files utilizes strings, then
+  the responsibility to maintain integrity between the code and all the language files is based on a human factor.<br/>
+  This arises a few issues which can lead to runtime errors:
+  <ul>
+    <li>The string can refer to a non existing key. it can be made by a typo or by moving the key to a different node while forgetting
+    to update the referring string in the class/template. this can lead to runtime errors.</li>
+    <li>You need to make sure the language files are fully consistent in their structure with each other, this can be done via a prebuild
+    script, so it is a step to add for the build process.</li>
+    <li>json files cannot have comments which are useful for clarification, especially when sending language files to translators.</li>
+    <li>for a given key, when we want to combine in its translation another key's translation, it is currently possible only if both
+      are on the same node.</li>
+  </ul>
+</section>
+
+<section>
+  ngx-translaze was developed to solve the above issues by using dynamically loaded language components instead of json files.<br/>
+  Working with the typescript compiler provides us with convenient and reliable tools right out of the box, the compiler automatically
+  checks for translation integrity and provides us with intellisense.<br/>
+  Read about the <a [routerLink]="'../benefits'">benefits</a> of using translation components.
+</section>

@@ -1,0 +1,214 @@
+/* You can add global styles to this file, and also import other style files */
+
+//@import 'theme';
+@import 'markdown';
+
+$block-border-radius: 8px;
+
+html,body,address,blockquote,div,
+form,fieldset,caption,
+h1,h2,h3,h4,h5,h6,
+hr,ul,li,ol,ul,dl,dt,dd,
+table,tr,td,th,p,img {
+  margin:0;
+  padding:0;
+}
+
+img, fieldset {
+  border:none;
+}
+
+*, *:after, *:before {
+  box-sizing:border-box;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100vh;
+}
+
+body {
+  // font-family: Arial, "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  padding: 2rem;
+  header {
+    &.title {
+      font-weight: bold;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+  section {
+    line-height: 1.3rem;
+    &:not(:first-child) {
+      margin-top: 1.5rem;
+    }
+    .title {
+      font-size: 1rem;
+      font-weight: bolder;
+      margin-bottom: 0.2rem;
+    }
+    h2 {
+      color: #ff6a00;
+      margin-bottom: 0.5rem;
+    }
+    > ul {
+      margin-top: 0.5rem;
+      > li {
+        margin-top: 0.1rem;
+        margin-left: 1rem;
+      }
+    }
+
+    table {
+      border-collapse: collapse;
+      th {
+        background: #58ccbb;
+      }
+      td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        vertical-align: top;
+        &.func-params {
+          .func-param {
+            font-weight: bold;
+            margin-right: 0.4rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.section-inner-title {
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  &:not(:first-child) {
+    margin-top: 1rem;
+  }
+}
+
+.note {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #666666;
+}
+
+.block-quote {
+  margin-top: 2rem;
+  background: white;
+  border: 1px solid #cecece;
+  border-left: 6px solid #00a6ff;
+  padding: 1rem;
+  border-radius: $block-border-radius;
+
+  &.warning {
+    border-left-color: red;
+  }
+
+  .emp {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #8bd200;
+  }
+
+  hr {
+    margin: 1rem 0;
+    background: #cccccc;
+    height: 1px;
+    border: none;
+  }
+
+  table {
+    border: none;
+    td {
+      vertical-align: top;
+    }
+  }
+}
+
+.sum-line-hl, img {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  // color: #ff8d00;
+}
+
+.warning-line {
+  color: red;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.angular-element-header {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+/*****************************/
+/*      T E R A D A T A      */
+/*****************************/
+
+td-flavored-markdown > div, .desc-image {
+  margin-top: 0.3rem;
+}
+
+td-highlight {
+  border-radius: $block-border-radius;
+}
+
+code, pre {
+  font-family: Arial, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  line-height: 1.5;
+  hyphens: none;
+}
+
+
+
+
+
+
+/*
+
+//:not(pre) > code, pre {
+pre {
+  background: #272822;
+}
+
+pre {
+  background: black;
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+code, pre {
+  color: #f8f8f2;
+  background: none;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+*/

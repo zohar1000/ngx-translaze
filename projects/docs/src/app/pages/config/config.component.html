@@ -1,0 +1,89 @@
+
+TranslazeRootModule is initialized with a config object specifying the different languages and how to handle them.<br/><br/>
+
+Here is a config example for english and spanish.
+
+<td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+  {{ mdConfigSample }}
+</td-flavored-markdown>
+
+<section>
+  The interface and the explanation for each property is listed below.
+
+  <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
+    {{ mdConfigInterface }}
+  </td-flavored-markdown>
+</section>
+
+<section>
+  <br/>Below is the list of options, mandatory options are marked as bold:<br/><br/>
+  <table>
+    <tr><th>Name</th><th>description</th></tr>
+    <tr>
+      <td><b>langs</b></td>
+      <td>the array of languages, each item has the following properties:<br/><br/>
+        <table>
+          <tr><td><b>code</b></td>
+            <td>a language code, this can be any string like 'en', 'fr' or 'en-us'.<br/>
+            the language file names should all be in the same pattern which includes the language code (e.g, lang-en.component.ts).
+            </td>
+          </tr>
+
+          <tr><td>name</td>
+            <td>a display name, this can used in a language dropdown selection</td>
+          </tr>
+
+<!--          <tr><td>icon</td>-->
+<!--            <td>icon file url</td>-->
+<!--          </tr>-->
+
+          <tr><td>default</td>
+            <td>specify if this language will be the default language.
+            <br/>note that option <i>isUseBrowserDefaultLang</i> below takes precedence over this option.<br/>
+            default: false</td>
+          </tr>
+
+          <tr><td>complementBy</td>
+            <td>specify a language code that this language will be complemented by.<br/>
+              for example, if a spanish language component file holds a language text having some missing or empty keys, than specifying complementBy: 'en' will
+              have those keys replaced by their counterpart keys from the english language component. in this case ngx-translaze will make sure to load the english
+              language component prior of using the spanish language.
+            </td>
+        </table>
+
+      </td>
+    </tr>
+
+<!--    <tr>-->
+<!--      <td>code</td>-->
+<!--      <td>a language file name suffix. it splanguage code, such as 'en' or 'fr', can be also 'en-us' and 'en-gb'</td>-->
+<!--    </tr>-->
+
+    <tr>
+      <td><b>loadLang</b></td>
+      <td>a function to lazy load the component via import statement, it receives the language code as a parameter.<br/>
+      note that lazy loading of a language component will happen only once, from than on the language component will be be served from the browser's cache.</td>
+    </tr>
+
+    <tr>
+      <td>onLangTextReady</td>
+      <td>a function to be invoked when a language text is ready, it receives the language text as a parameter</td>
+    </tr>
+
+    <tr>
+      <td>onLoadError</td>
+      <td>a function to be invoked in case of an error in ngx-translaze</td>
+    </tr>
+
+    <tr>
+      <td>localStorageKey</td>
+      <td>the key under which ngx-translaze will store its data in the local storage.<br/>default: 'translaze'</td>
+    </tr>
+
+    <tr>
+      <td>isUseBrowserDefaultLang</td>
+      <td>when true, the user's browser language will be the default language.<br/>this option takes precedence even if a default is specified in the 'langs' array option.<br/>default: true</td>
+    </tr>
+
+  </table>
+</section>

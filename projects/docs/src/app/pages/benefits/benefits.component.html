@@ -1,0 +1,25 @@
+<div class="page">
+  <header class="title">Benefits of using dynamically loaded translation components</header>
+
+  <section>
+    Working with the typescript compiler provides us with convenient and reliable tools right out of the box.<br/>
+    We can define an interface for our translation object and automatically have the following benefits:
+  <ul>
+    <li>The language text in the language components have the correct structure according to the language text interface</li>
+    <li>All references in our code and templates to the language text are safe and points to existing keys</li>
+    <li>Intellisense in our code and templates</li>
+    <li>Smaller bundle size since Angular's builtin tools are used</li>
+    <li>Language components are lazy loaded so they will be loaded only the first time they are required</li>
+    <li>Flexibility when coding the language text, it is a javascript object and not JSON so you can do things like:
+<pre>
+  readonly COMPANY_NAME = 'Xavilon Ltd.';
+  appText: AppText = {{'{'}}
+     companyName: this.COMPANY_NAME,
+     copyright: `© 2021 {{'{'}}this.COMPANY_NAME}.  All rights reserved.`
+}
+</pre>
+    </li>
+  </ul>
+  </section>
+
+</div>

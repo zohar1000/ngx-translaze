@@ -1,0 +1,5 @@
+<ng-container *ngIf="appText$ | async as appText">
+  <h1>{{appText.pages.about.title}}</h1>
+
+  <p>Our product {{appText.general.productName}} is a ...</p>
+</ng-container>
