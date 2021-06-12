@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
 import { BaseComponent } from '../../shared/base-classes/base.component';
-import { BehaviorSubject, timer } from 'rxjs';
-import { AppText } from '../../../../../test-app-v11/src/app/shared/models/app-text.model';
-import { ContactUsText } from '../../../../../test-app-v11/src/app/shared/models/contact-us-text.model';
-import { TranslazeFeatureService, TranslazeService } from 'ngx-translaze';
 
 @Component({
   selector: 'app-feature',
