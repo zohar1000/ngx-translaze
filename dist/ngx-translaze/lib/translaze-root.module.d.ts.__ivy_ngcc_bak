@@ -1,0 +1,5 @@
+import { ModuleWithProviders } from '@angular/core';
+import { TranslazeConfig } from './models/config/translaze-config.model';
+export declare class TranslazeRootModule {
+    static forRoot(config: TranslazeConfig): ModuleWithProviders<TranslazeRootModule>;
+}

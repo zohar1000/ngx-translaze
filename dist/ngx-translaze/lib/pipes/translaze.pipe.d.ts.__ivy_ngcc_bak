@@ -1,0 +1,7 @@
+import { PipeTransform } from '@angular/core';
+import { TranslazeService } from '../services/translaze.service';
+export declare class TranslazePipe implements PipeTransform {
+    private translazeService;
+    constructor(translazeService: TranslazeService);
+    transform(str: unknown, args: unknown): unknown;
+}

@@ -1,0 +1,17 @@
+import { Pipe } from '@angular/core';
+import { TranslazeService } from '../services/translaze.service';
+export class TranslazePipe {
+    constructor(translazeService) {
+        this.translazeService = translazeService;
+    }
+    transform(str, args) {
+        return this.translazeService.translate(str, args);
+    }
+}
+TranslazePipe.decorators = [
+    { type: Pipe, args: [{ name: 'translaze' },] }
+];
+TranslazePipe.ctorParameters = () => [
+    { type: TranslazeService }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidHJhbnNsYXplLnBpcGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9wcm9qZWN0cy9uZ3gtdHJhbnNsYXplL3NyYy9saWIvcGlwZXMvdHJhbnNsYXplLnBpcGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLElBQUksRUFBaUIsTUFBTSxlQUFlLENBQUM7QUFDcEQsT0FBTyxFQUFFLGdCQUFnQixFQUFFLE1BQU0sK0JBQStCLENBQUM7QUFHakUsTUFBTSxPQUFPLGFBQWE7SUFDeEIsWUFBb0IsZ0JBQWtDO1FBQWxDLHFCQUFnQixHQUFoQixnQkFBZ0IsQ0FBa0I7SUFBRyxDQUFDO0lBRTFELFNBQVMsQ0FBQyxHQUFZLEVBQUUsSUFBYTtRQUNuQyxPQUFPLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxTQUFTLENBQUMsR0FBRyxFQUFFLElBQUksQ0FBQyxDQUFDO0lBQ3BELENBQUM7OztZQU5GLElBQUksU0FBQyxFQUFFLElBQUksRUFBRSxXQUFXLEVBQUU7OztZQUZsQixnQkFBZ0IiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBQaXBlLCBQaXBlVHJhbnNmb3JtIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQgeyBUcmFuc2xhemVTZXJ2aWNlIH0gZnJvbSAnLi4vc2VydmljZXMvdHJhbnNsYXplLnNlcnZpY2UnO1xuXG5AUGlwZSh7IG5hbWU6ICd0cmFuc2xhemUnIH0pXG5leHBvcnQgY2xhc3MgVHJhbnNsYXplUGlwZSBpbXBsZW1lbnRzIFBpcGVUcmFuc2Zvcm0ge1xuICBjb25zdHJ1Y3Rvcihwcml2YXRlIHRyYW5zbGF6ZVNlcnZpY2U6IFRyYW5zbGF6ZVNlcnZpY2UpIHt9XG5cbiAgdHJhbnNmb3JtKHN0cjogdW5rbm93biwgYXJnczogdW5rbm93bik6IHVua25vd24ge1xuICAgIHJldHVybiB0aGlzLnRyYW5zbGF6ZVNlcnZpY2UudHJhbnNsYXRlKHN0ciwgYXJncyk7XG4gIH1cbn1cbiJdfQ==

@@ -1,0 +1,6 @@
+export var TranslazeLangStatus;
+(function (TranslazeLangStatus) {
+    TranslazeLangStatus[TranslazeLangStatus["Start"] = 1] = "Start";
+    TranslazeLangStatus[TranslazeLangStatus["Complete"] = 2] = "Complete";
+})(TranslazeLangStatus || (TranslazeLangStatus = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidHJhbnNsYXplLWxhbmctc3RhdHVzLmVudW0uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9wcm9qZWN0cy9uZ3gtdHJhbnNsYXplL3NyYy9saWIvZW51bXMvdHJhbnNsYXplLWxhbmctc3RhdHVzLmVudW0udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTSxDQUFOLElBQVksbUJBR1g7QUFIRCxXQUFZLG1CQUFtQjtJQUM3QiwrREFBUyxDQUFBO0lBQ1QscUVBQVksQ0FBQTtBQUNkLENBQUMsRUFIVyxtQkFBbUIsS0FBbkIsbUJBQW1CLFFBRzlCIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGVudW0gVHJhbnNsYXplTGFuZ1N0YXR1cyB7XHJcbiAgU3RhcnQgPSAxLFxyXG4gIENvbXBsZXRlID0gMlxyXG59XHJcbiJdfQ==
