@@ -31,4 +31,16 @@ export class MyComponent {
    \`\`\`
  `;
 
+  mdFeatureModule = `
+   \`\`\`typescript
+import { TranslazeFeatureModule } from 'ngx-translaze';
+
+@NgModule({
+  imports: [
+        TranslazeFeatureModule
+  ]
+})
+   \`\`\`
+ `;
+
 }

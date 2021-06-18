@@ -1,4 +1,4 @@
-ngx-translaze makes it safe and easy to develop multi lingual angular apps.<br/><br/>
+ngx-translaze makes it safe and easy to develop multi lingual angular apps by using a typed language text.<br/><br/>
 
 Implementation is with components and interfaces, rather than json files:
 1. the language text will have an interface, one for all languages
