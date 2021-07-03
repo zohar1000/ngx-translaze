@@ -43,18 +43,21 @@ $sidebar-width: 170px;
     z-index: 1;
 
     .sidebar {
-      background: #383838; // #636363;  // #b0b0b0;  // #272822;
+      //background: #383838; // #636363;  // #b0b0b0;  // #272822;
+      background: #444444;  // #636363;  // #b0b0b0;  // #272822;
       width: $sidebar-width;
       padding: 3rem 0 0 1rem;
       position: relative;
       box-shadow: 2px 0 3px hsl(0deg 0% 59% / 100%);
       .fixed-menu {
         position: fixed;
+        margin-top: 0.5rem;
         .menu-item {
-          margin-bottom: 1rem;
+          margin-bottom: 1.4rem;
           a {
             text-decoration: none;
-            color: #2fa9ff; // #28c6d6;  // #0082a0;
+            //color: #2fffa9cc;  // #2fa9ff; // #28c6d6;  // #0082a0;
+            color: #28c6d6;  // #0082a0;
           }
         }
       }

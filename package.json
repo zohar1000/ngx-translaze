@@ -15,7 +15,8 @@
     "serve:testApp": "ng s test-app-v11 --port 8000",
     "build:test": "ng build ngx-translaze && ng s test-app-v11 --port 8000",
     "build:prod": "ng build ngx-translaze --prod && ng s test-app-v11 --prod --port 8000",
-    "build:prod:app": "ng build test-app-v11 --prod"
+    "build:prod:app": "ng build test-app-v11 --prod",
+    "build:docs": "ng build docs --prod"
   },
   "private": true,
   "dependencies": {

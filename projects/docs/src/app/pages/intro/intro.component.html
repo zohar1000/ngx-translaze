@@ -1,23 +1,52 @@
 <section>
   ngx-translaze makes it safe and easy to develop multi lingual angular apps.<br/><br/>
-  App development is made over time and it is hard to avoid human mistakes once a while which cause run time errors.<br/>
-  ngx-translaze was designed to provide multi lingual capabilities while preventing such errors.<br/><br/>
 
+  Implementation is made via components and interfaces, rather than json files.<br/>
+  The language text itself is defined by an interface, which enables the typescript compiler to automatically
+  catch errors and provide intellisense as you develop.<br/><br/>
+
+  Having the language text defined by an interface protects us from making errors when we refer to it from our templates
+  and components.<br/>
+  such errors can be caused by modifying keys, moving keys, having to synchronize the
+  structure across multiple languages, and so on.<br/>
+  It is safe and reliable approach since changes are made to the code throughout the life of the app and it is hard
+  to avoid human mistakes.<br/>
+  ngx-translaze is designed to protect us from such errors.
+  <br/><br/>
+
+  <ul>By using Angular's built-in tools, components and interfaces, we are being automatically provided with those benefits:
+    <li>error checking by the typescript compiler in our classes and templates, making it safe in case we use incorrect keys</li>
+    <li>intellisense in our classes and templates</li>
+    <li>it is easier to maintain language text in components rather than json files</li>
+    <li>the bundle size is small since Angular's built-in tools are used</li>
+    <li>language components are lazy loaded</li>
+  </ul>
+
+  <br/>
+  <div class="angular-element-header">about.component.html</div>
+  <img class="desc-image" src="assets/images/intellisense-animated.gif" alt="intellisense"/>
+
+<!--
   <h2>Overview</h2>
   <ul>The steps to implement multi lingual:
     <li>create an interface of your language text structure</li>
     <li>create a component for each language and declare a variable to hold the language text.<br/>
       the variable will have the type of the language text interface</li>
-    <li>in your application components declare a variable which will reference the language text</li>
+    <li>in your app module, import NgxTranslate module and pass it a config object where you define a default language.<br/>
+      the module
+    </li>
+    <li>in a component you want to use the translation declare a variable that will reference the language text</li>
   </ul>
   <div class="sum-line-hl">Your template have now access to a typed language text!</div>
+-->
+
   <!--The components are lazy loaded, so each language will be loaded only on demand.-->
 </section>
 
 <section>
   <br/><h2>Example</h2>
   The example demonstrates how to implement an 'about' page.<br/>
-  The page will have a title and short description, both using language text.
+  The page will have a title that will be displayed from the language text.
   <div class="section-inner-title">The interface</div>
   We will declare an interface for the language text structure named <i>AppText</i><br/>
   <div class="note">Note that the names of interfaces, components and variables used in this example are arbitrary, you can choose your own names.</div>
@@ -38,35 +67,44 @@
 <div class="block-quote">
   When developing a multi lingual app we work with multiple language components.<br/>
   During development we modify the text in our language components and we might make mistakes which can lead to run time errors.<br/>
-  For example we might not keep a language text consistent with the interface by forgetting to add a new key, or we may add
+  For example, we might not keep a language text consistent with the interface by forgetting to add a new key, or we may add
   a key to a wrong node, or we might update the language components with new keys but miss updating one of the language components.<br/><br/>
 
   <div class="emp">Benefit #1 - automatic language text integrity</div>
 
-  Having an interface and a corresponding typed variable for each language component ensures integrity of the text structure
-  between all oue language components.<br/>
+  All language components contains the text in a variable typed as <i>AppText</i> which ensures that our
+  language text structure is consistent across all language components.<br/>
+
   This is automatically done for us by the typescript compiler at build time.
 </div>
 
 <section>
   <div class="section-inner-title">The about component</div>
-  Now in our about component we will declare a class variable appText$, this will be a BehaviourSubject typed <i>AppText</i>,  this variable
-  will be used in our template.
+  Now in our about component we will declare a class variable appText$, this will be a BehaviourSubject typed as <i>AppText</i>, this variable
+  will be used in our template.<br/>
+
+  Next is to assign the app text to our variables from the <b>text$</b> observable in ngx-translaze service.<br/>
+
+<!--
+  To assign the app text to our variable we will inject ngx-translate service and assign the app text to our variable from the text$
+
+  We will inject ngx-translate service to have the app text assigned
+
+  ngx-translaze provides a few ways to assign the language text to the variable.<br/>
+  We will show here how the text is assigned via ngx-translate injected service.-->
   <td-flavored-markdown [copyCodeToClipboard]="true" [copyCodeTooltips]="copyCodeTooltips">
     {{ mdComponentVariable }}
   </td-flavored-markdown>
+  <div class="sum-line-hl">Your template have now access to a typed language text!</div>
 </section>
 
 <section>
-  ngx-translaze provides a simple one-liner method to assign the language text to this variables, actually there are multiple ways
-  for your choice, those will be described later on.<br/>
-  Lets assume for now that appText$ already contains the text.
   <div id="template" class="section-inner-title">The template</div>
-  Since the language text is lazy loaded we need to make sure the text was loaded before using it, so we will
+  Since the language text is lazy loaded we need to make sure the text was loaded before we use it, so we will
   wrap our template with *ngIf.<br/>
-  For convenience, we can refer the language text with a template variable, we called it here <i>appText</i>.<br/><br/>
+  For convenience, we can refer the language text with a template variable, we name it here <i>appText</i>.<br/><br/>
   The IDE now provides intellisense when we refer the language text in our template.<br/>
-  <img class="desc-image" src="assets/images/intellisense.gif" alt="intellisense"/>
+  <img class="desc-image" src="assets/images/intellisense.png" alt="intellisense"/>
 </section>
 
 <div class="block-quote">

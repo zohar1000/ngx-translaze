@@ -55,6 +55,10 @@ export class LangEnComponent {
    \`\`\`typescript
 export class AboutComponent {
      appText$: BehaviorSubject<AppText>;
+     
+     constructor(public translazeService: TranslazeService) {
+        this.appText$ = this.translazeService.text$ as BehaviorSubject<AppText>;
+     }
 
    \`\`\`
  `;
