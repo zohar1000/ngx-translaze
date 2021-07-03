@@ -22,7 +22,7 @@ By using Angular's built-in tools, components and interfaces, we are being autom
 <br/><br/>
 
 about.component.html
-![about.component.html](assets/images/intellisense-animated.gif)
+![about.component.html](https://zohar1000.github.io/ngx-translaze/assets/images/intellisense-animated.gif)
 <br/><br/>
 
 
