@@ -21,7 +21,7 @@ By using Angular's built-in tools, components and interfaces, we are being autom
 * language components are lazy loaded
 <br/><br/>
 
-about.component.html
+<sub>about.component.html</sub><br/>
 ![about.component.html](https://zohar1000.github.io/ngx-translaze/assets/images/intellisense-animated.gif)
 <br/><br/>
 
