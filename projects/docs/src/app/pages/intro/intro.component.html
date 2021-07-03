@@ -3,18 +3,11 @@
 
   Implementation is made via components and interfaces, rather than json files.<br/>
   The language text itself is defined by an interface, which enables the typescript compiler to automatically
-  catch errors and provide intellisense as you develop.<br/><br/>
-
-  Having the language text defined by an interface protects us from making errors when we refer to it from our templates
-  and components.<br/>
+  provide us with intellisense and catch errors in our templates and classes.<br/>
   such errors can be caused by modifying keys, moving keys, having to synchronize the
-  structure across multiple languages, and so on.<br/>
-  It is safe and reliable approach since changes are made to the code throughout the life of the app and it is hard
-  to avoid human mistakes.<br/>
-  ngx-translaze is designed to protect us from such errors.
-  <br/><br/>
+  structure across multiple languages, and so on.<br/><br/>
 
-  <ul>By using Angular's built-in tools, components and interfaces, we are being automatically provided with those benefits:
+  <ul>By using Angular's components and interfaces we are being automatically provided with those benefits:
     <li>error checking by the typescript compiler in our classes and templates, making it safe in case we use incorrect keys</li>
     <li>intellisense in our classes and templates</li>
     <li>it is easier to maintain language text in components rather than json files</li>
